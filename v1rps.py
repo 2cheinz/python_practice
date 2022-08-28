@@ -1,23 +1,34 @@
 print("Rock...")
 print("Paper...")
 print("Scissors...")
+import random
+player = input("Player, enter your choice: ").lower()
+random_num = random.randint(0,2)
 
-player1 = input("Player 1, enter your choice: ")
-player2 = input("Player 2, enter your choice: ")
-
-if player1 == "rock" and player2 == "scissors":
-    print("Player 1 wins!")
-elif player1 == "rock" and player2 == "paper":
-    print("Player 2 wins!")
-elif player1 == "paper" and player2 == "rock":
-    print("Player 1 wins!")
-elif player1 == "paper" and player2 == "scissors":
-    print("Player 2 wins!")
-elif player1 == "scissors" and player2 == "rock":
-    print("Player 2 wins!")
-elif player1 == "scissors" and player2 == "paper":
-    print("Player 1 wins!")
-elif player1 == player2:
-    print("It's a tie!")
+if random_num == 0:
+    computer = "rock"
+elif random_num == 1:
+    computer = "scissors"
 else:
-    print("Please check your choices, something went wrong! :(")
+    computer = "paper"
+print(computer)
+
+if player == computer:
+    print("It's a tie!")
+elif player == "rock":
+    if computer == "scissors":
+        print("Player wins!")
+    elif computer == "paper":
+        print("Computer wins!")
+elif player == "scissors":
+    if computer == "rock":
+        print("Computer wins!")
+    elif computer == "paper":
+        print("Player wins!")
+elif player == "paper":
+    if computer == "rock":
+        print("Player wins!")
+    elif computer == "scissors":
+        print("Computer wins!")
+else:
+    print("ERROR: Please check the spelling of your choice! (it must equal rock, paper, or scissors")
